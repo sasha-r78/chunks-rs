@@ -4,7 +4,7 @@ use std::{
 };
 
 use dbus::blocking::Connection;
-use gio::glib::ControlFlow;
+use gio::glib::{clone::Downgrade, ControlFlow};
 use gtk4::{
     glib::timeout_add_seconds_local,
     prelude::{BoxExt, ButtonExt},
@@ -184,20 +184,22 @@ impl Internal {
         F: Fn() -> String + 'static,
     {
         if let Tag::Label(label) = tag {
-            let css_tag = label.clone();
+            let weak_label = label.downgrade();
 
             let update = move || {
-                let text = format_fn();
+                if let Some(label) = weak_label.upgrade() {
+                    let text = format_fn();
 
-                if text.contains("</") && text.contains('>') {
-                    css_tag.set_markup(&text);
-                } else {
-                    css_tag.set_text(&text);
+                    if text.contains("</") && text.contains('>') {
+                        label.set_markup(&text);
+                    } else {
+                        label.set_text(&text);
+                    }
                 }
-
                 ControlFlow::Continue
             };
 
+            // Initial update
             update();
 
             timeout_add_seconds_local(interval, update);

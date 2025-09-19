@@ -62,12 +62,12 @@ impl Chunk {
     /// Different from the `Plate` and `Bar` builders, the `Chunk` build() returns Self for
     /// subsequent method chaining.
     pub fn build(mut self) -> Self {
-        let child = match self.tag {
-            Tag::Label(ref label) => label.clone().upcast::<Widget>(),
-            Tag::Box(ref box_) => box_.clone().upcast::<Widget>(),
-            Tag::Button(ref button) => button.clone().upcast::<Widget>(),
-            Tag::Revealer(ref revealer) => revealer.clone().upcast::<Widget>(),
-            Tag::Scroller(ref scroller) => scroller.clone().upcast::<Widget>(),
+        let child = match &self.tag {
+            Tag::Label(label) => label.upcast_ref::<Widget>().clone(),
+            Tag::Box(box_) => box_.upcast_ref::<Widget>().clone(),
+            Tag::Button(button) => button.upcast_ref::<Widget>().clone(),
+            Tag::Revealer(revealer) => revealer.upcast_ref::<Widget>().clone(),
+            Tag::Scroller(scroller) => scroller.upcast_ref::<Widget>().clone(),
             Tag::Undefined => panic!("Tag is undefined!"),
         };
 

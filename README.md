@@ -16,11 +16,11 @@ Chunks uses GTK4 and GTK4 Layer Shell at its core, and comes stock with a listen
 
 Make sure you have GTK4 and GTK4-Layer-Shell installed on your system.
 
-> For more in depth examples, please refer to [example-chunks](https://github.com/drkrssll/example-chunks)
+> For more in depth examples, please refer to [example-chunks](https://github.com/sasha-r78/example-chunks)
 
 ```toml
 [dependencies]
-chunks-rs = "0.7.5"
+chunks-rs = "0.7.6"
 ```
 
 This will create a storage widget, similar to the one in the screenshot:

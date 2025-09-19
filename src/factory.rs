@@ -1,4 +1,3 @@
-
 use gio::{ApplicationCommandLine, ApplicationFlags};
 use gtk4::{
     glib::ExitCode,

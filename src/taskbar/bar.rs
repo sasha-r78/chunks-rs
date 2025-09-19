@@ -47,11 +47,11 @@ impl Builder for Bar {
 
         for tag in &self.tags {
             let child = match tag {
-                Tag::Label(label) => label.clone().upcast::<Widget>(),
-                Tag::Box(box_) => box_.clone().upcast::<Widget>(),
-                Tag::Button(button) => button.clone().upcast::<Widget>(),
-                Tag::Revealer(revealer) => revealer.clone().upcast::<Widget>(),
-                Tag::Scroller(scroller) => scroller.clone().upcast::<Widget>(),
+                Tag::Label(label) => label.upcast_ref::<Widget>().clone(),
+                Tag::Box(box_) => box_.upcast_ref::<Widget>().clone(),
+                Tag::Button(button) => button.upcast_ref::<Widget>().clone(),
+                Tag::Revealer(revealer) => revealer.upcast_ref::<Widget>().clone(),
+                Tag::Scroller(scroller) => scroller.upcast_ref::<Widget>().clone(),
                 Tag::Undefined => panic!("Tag is undefined!"),
             };
 

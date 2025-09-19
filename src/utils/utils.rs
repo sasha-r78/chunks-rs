@@ -42,11 +42,11 @@ pub fn tag_container(
     let widgets: Vec<Widget> = widgets
         .into_iter()
         .map(|tag| match tag {
-            Tag::Label(label) => label.clone().upcast::<Widget>(),
-            Tag::Box(box_) => box_.clone().upcast::<Widget>(),
-            Tag::Button(button) => button.clone().upcast::<Widget>(),
-            Tag::Revealer(revealer) => revealer.clone().upcast::<Widget>(),
-            Tag::Scroller(scroller) => scroller.clone().upcast::<Widget>(),
+            Tag::Label(label) => label.upcast::<Widget>(),
+            Tag::Box(box_) => box_.upcast::<Widget>(),
+            Tag::Button(button) => button.upcast::<Widget>(),
+            Tag::Revealer(revealer) => revealer.upcast::<Widget>(),
+            Tag::Scroller(scroller) => scroller.upcast::<Widget>(),
             Tag::Undefined => panic!("Tag is undefined!"),
         })
         .collect();
