@@ -1,7 +1,7 @@
 [package]
 name = "chunks-rs"
 version = "0.7.6"
-authors = ["Derek Russell russellderek01@gmail.com"]
+authors = ["Sasha Russell sasha.russell57@gmail.com"]
 edition = "2021"
 
 license = "MIT OR Apache-2.0"
@@ -9,8 +9,8 @@ categories = ["gui", "filesystem"]
 keywords = ["widget", "GUI", "widgets", "frontend", "toolkit"]
 
 description = "A library for making GTK4 widgets, inspired by Elkowar's Wacky Widgets."
-repository = "https://github.com/drkrssll/chunks-rs/"
-homepage = "https://github.com/drkrssll/chunks-rs/"
+repository = "https://github.com/sasha-r78/chunks-rs/"
+homepage = "https://github.com/sasha-r78/chunks-rs/"
 
 [dependencies]
 chrono = "0.4.38"
